@@ -32,6 +32,7 @@ using System.Reflection;
 using CompoundParts;
 using Experience;
 using UnityEngine;
+using KSP.Localization;
 
 namespace EVAStruts
 {
@@ -90,9 +91,9 @@ namespace EVAStruts
 			if (state == StartState.Editor)
 				return;
 
-			Events["pickupEVAStrut"].guiName = "Pickup EVA Strut";
-			Events["cutEVAStrut"].guiName = "Cut EVA Strut";
-			Events["dropEVAStrut"].guiName = "Drop EVA Strut";
+			Events["pickupEVAStrut"].guiName = "收起安全绳"; //"Pickup EVA Strut"
+			Events["cutEVAStrut"].guiName = "切断安全绳"; // "Cut EVA Strut"
+			Events["dropEVAStrut"].guiName = "放出安全绳"; // "Drop EVA Strut"
 		}
 
 		private void Update()
@@ -335,19 +336,19 @@ namespace EVAStruts
 		{
 			if (!checkEVAVessel)
 			{
-				ScreenMessages.PostScreenMessage("Current Vessel is not an EVA Kerbal...", 6f, ScreenMessageStyle.UPPER_CENTER);
+				ScreenMessages.PostScreenMessage("当前选择不是已出舱的坎巴拉人", 6f, ScreenMessageStyle.UPPER_CENTER); // "Current Vessel is not an EVA Kerbal..."
 				return;
 			}
 
 			if (!checkProfession)
 			{
-				ScreenMessages.PostScreenMessage("The Kerbal must have the " + useSkill + " to attach the EVA strut.", 6f, ScreenMessageStyle.UPPER_CENTER);
+				ScreenMessages.PostScreenMessage("该乘员必须有" + useSkill + "才能使用安全绳", 6f, ScreenMessageStyle.UPPER_CENTER); // "The Kerbal must have the " + useSkill + " to attach the EVA strut."
 				return;
 			}
 
 			if (!checkLevel)
 			{
-				ScreenMessages.PostScreenMessage("The Kerbal must be above level " + minLevel + " to attach the EVA strut.", 6f, ScreenMessageStyle.UPPER_CENTER);
+				ScreenMessages.PostScreenMessage("该乘员必须大于等级"+ minLevel + "才能使用安全绳", 6f, ScreenMessageStyle.UPPER_CENTER); // "The Kerbal must be above level " + minLevel + " to attach the EVA strut."
 				return;
 			}
 
